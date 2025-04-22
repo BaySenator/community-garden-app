@@ -91,6 +91,7 @@ def main():
         if not gardens: st.info("No gardens."); return
         selected = st.selectbox("Choose", gardens)
         data = get_garden_data(db, selected)
+        if not data: return
         st.subheader(f"🌿 {data['name']}")
         st.write(f"{data['location']} | {data['size']} acres | {data['since']} | Owners: {', '.join(data['owners'])}")
         with st.expander("Export"):
